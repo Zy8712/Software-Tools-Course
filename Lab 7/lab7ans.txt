@@ -1,0 +1,895 @@
+/***************************************
+* EECS2031M – Lab 7 *
+* Author: Li, Bryan *
+* Email: bryan712@my.yorku.ca *
+* eecs_num: bryan712 *
+* Yorku #:  216426744
+****************************************/s
+
+=================================================
+PART I Unix Utilities/Commands
+=================================================
+
+QUESTION 1:
+sh-4.2$ cp /eecs/dept/course/2019-20/W/2030tmp/xxx .
+
+
+QUESTION 2:
+sh-4.2$ ls
+xxx
+
+
+QUESTION 3:
+sh-4.2$ cp /eecs/dept/course/2019-20/W/2030tmp/xFile* .
+
+
+QUESTION 4:
+sh-4.2$ ls xFile*
+xFile2	xFile3
+sh-4.2$ ls
+xFile2	xFile3	xxx
+
+
+QUESTION 5:
+sh-4.2$ mv xxx xFile1
+
+
+QUESTION 6(1):
+sh-4.2$ echo $?
+0
+
+
+QUESTION 6(2):
+sh-4.2$ ls
+xFile1	xFile2	xFile3
+
+
+QUESTION 7:
+sh-4.2$ mkdir 2020W
+sh-4.2$ mkdir /cs/home/bryan712/Documents/EECS2031/EECS2031Lab7/2020W/lab8a
+
+
+QUESTION 8:
+sh-4.2$ ls -R 2020W
+2020W:
+lab8a
+
+2020W/lab8a:
+
+
+QUESTION 9:
+sh-4.2$ mv -i xFile1 2020W/lab8a
+
+
+QUESTION 10:
+sh-4.2$ mv -i xFile* 2020W/lab8a
+
+
+QUESTION 11:
+sh-4.2$ ls -l -R 2020W
+2020W:
+total 0
+drwx------ 2 bryan712 ugrad 64 Mar 28 21:34 lab8a
+
+2020W/lab8a:
+total 12
+-rwx------ 1 bryan712 ugrad 145 Mar 28 21:15 xFile1
+-rwx------ 1 bryan712 ugrad 145 Mar 28 21:18 xFile2
+-rwx------ 1 bryan712 ugrad  87 Mar 28 21:18 xFile3
+
+
+QUESTION 12:
+sh-4.2$ cd 2020W
+sh-4.2$ pwd
+/cs/home/bryan712/Documents/EECS2031/EECS2031Lab7/2020W
+
+
+QUESTION 13(1):
+sh-4.2$ ls -l lab8a
+total 12
+-rwx------ 1 bryan712 ugrad 145 Mar 28 21:15 xFile1
+-rwx------ 1 bryan712 ugrad 145 Mar 28 21:18 xFile2
+-rwx------ 1 bryan712 ugrad  87 Mar 28 21:18 xFile3
+
+
+QUESTION 13(2):
+sh-4.2$ ls -ld lab8a
+drwx------ 2 bryan712 ugrad 64 Mar 28 21:34 lab8a
+sh-4.2$ ls -l
+total 0
+drwx------ 2 bryan712 ugrad 64 Mar 28 21:34 lab8a
+
+
+QUESTION 14:
+sh-4.2$ cp -R lab8a lab8b
+
+
+QUESTION 15:
+sh-4.2$ ls -l *
+lab8a:
+total 12
+-rwx------ 1 bryan712 ugrad 145 Mar 28 21:15 xFile1
+-rwx------ 1 bryan712 ugrad 145 Mar 28 21:18 xFile2
+-rwx------ 1 bryan712 ugrad  87 Mar 28 21:18 xFile3
+
+lab8b:
+total 12
+-rwx------ 1 bryan712 ugrad 145 Mar 28 21:46 xFile1
+-rwx------ 1 bryan712 ugrad 145 Mar 28 21:46 xFile2
+-rwx------ 1 bryan712 ugrad  87 Mar 28 21:46 xFile3
+
+
+QUESTION 16:
+sh-4.2$ rmdir lab8a
+rmdir: failed to remove ‘lab8a’: Directory not empty
+
+
+QUESTION 17:
+sh-4.2$ echo $?
+1
+
+
+QUESTION 18:
+sh-4.2$ rm -R lab8a
+
+
+QUESTION 19(1):
+sh-4.2$ echo $?
+0
+
+
+QUESTION 19(2):
+sh-4.2$ ls lab8a
+ls: cannot access lab8a: No such file or directory
+
+
+QUESTION 20:
+sh-4.2$ mv lab8b/xFile1 .
+
+
+QUESTION 21:
+sh-4.2$ find . -name "xFile*"
+./lab8b/xFile2
+./lab8b/xFile3
+./xFile1
+
+
+QUESTION 22:
+sh-4.2$ mv -i lab8b lab7working
+
+
+QUESTION 23(1):
+sh-4.2$ cd lab7working
+
+
+QUESTION 23(2):
+sh-4.2$ pwd
+/cs/home/bryan712/Documents/EECS2031/EECS2031Lab7/2020W/lab7working
+
+
+QUESTION 24:
+sh-4.2$ mv ../xFile1 .
+
+
+QUESTION 25:
+sh-4.2$ ls
+xFile1	xFile2	xFile3
+sh-4.2$ ls -l
+total 12
+-rwx------ 1 bryan712 ugrad 145 Mar 28 21:46 xFile1
+-rwx------ 1 bryan712 ugrad 145 Mar 28 21:46 xFile2
+-rwx------ 1 bryan712 ugrad  87 Mar 28 21:46 xFile3
+
+
+QUESTION 26:
+sh-4.2$ cat
+Hi
+Hi
+There
+There
+^D
+
+
+QUESTION 27(1):
+sh-4.2$ cat > temp
+Hi
+There
+^D
+
+
+QUESTION 27(2):
+sh-4.2$ ls
+temp  xFile1  xFile2  xFile3
+
+
+QUESTION 27(3):
+sh-4.2$ cat temp
+Hi
+There
+
+
+QUESTION 28:
+sh-4.2$ rm temp
+
+
+QUESTION 29:
+sh-4.2$ cat xFile1
+John Smith  1222 26 Apr 1956
+Tony Jones  2152 20 Mar 1950
+John Duncan 2    20 Jan 1966
+Larry Jones 3223 20 Dec 1946
+Lisa Sue    1222 4  Jul 1980
+
+
+QUESTION 30:
+sh-4.2$ more xFile?
+::::::::::::::
+xFile1
+::::::::::::::
+John Smith  1222 26 Apr 1956
+Tony Jones  2152 20 Mar 1950
+John Duncan 2    20 Jan 1966
+Larry Jones 3223 20 Dec 1946
+Lisa Sue    1222 4  Jul 1980
+::::::::::::::
+xFile2
+::::::::::::::
+John Smith  1222 26 Apr 1956
+Tony Jones  2152 20 Mar 1950
+John Duncan 2    20 Jan 1966
+Larry Jones 3223 20 Dec 1946
+Lisa Sue    1222 4  Jul 1980
+::::::::::::::
+xFile3
+::::::::::::::
+John Smith  1222 26 Apr 1956
+John Duncan 2    20 Jan 1966
+Larry Jones 3223 20 Dec 1946
+
+
+QUESTION 31:
+sh-4.2$ wc -l xFile1
+5 xFile1
+
+
+QUESTION 32:
+sh-4.2$ head -2 xFile1
+John Smith  1222 26 Apr 1956
+Tony Jones  2152 20 Mar 1950
+
+
+QUESTION 33:
+sh-4.2$ tail -3 xFile2
+John Duncan 2    20 Jan 1966
+Larry Jones 3223 20 Dec 1946
+Lisa Sue    1222 4  Jul 1980
+
+
+QUESTION 34(1):
+sh-4.2$ cmp xFile1 xFile2
+
+
+QUESTION 34(2):
+sh-4.2$ echo $?
+0
+
+
+QUESTION 35(1):
+sh-4.2$ diff xFile1 xFile2
+
+
+QUESTION 35(2):
+sh-4.2$ echo $?
+0
+
+
+QUESTION 36(1):
+sh-4.2$ diff xFile2 xFile3
+2d1
+< Tony Jones  2152 20 Mar 1950
+5d3
+< Lisa Sue    1222 4  Jul 1980
+
+
+QUESTION 36(2):
+sh-4.2$ echo $?
+1
+
+
+QUESTION 37(1):
+sh-4.2$ cmp xFile2 xFile3
+xFile2 xFile3 differ: byte 30, line 2
+
+
+QUESTION 37(2):
+sh-4.2$ echo $?
+1
+
+
+QUESTION 38(1):
+sh-4.2$ cat xFile1 xFile2 xFile3 > xFile123
+
+
+QUESTION 38(2):
+sh-4.2$ more xFile123
+John Smith  1222 26 Apr 1956
+Tony Jones  2152 20 Mar 1950
+John Duncan 2    20 Jan 1966
+Larry Jones 3223 20 Dec 1946
+Lisa Sue    1222 4  Jul 1980
+John Smith  1222 26 Apr 1956
+Tony Jones  2152 20 Mar 1950
+John Duncan 2    20 Jan 1966
+Larry Jones 3223 20 Dec 1946
+Lisa Sue    1222 4  Jul 1980
+John Smith  1222 26 Apr 1956
+John Duncan 2    20 Jan 1966
+Larry Jones 3223 20 Dec 1946
+
+
+QUESTION 39:
+sh-4.2$ sort xFile123
+John Duncan 2    20 Jan 1966
+John Duncan 2    20 Jan 1966
+John Duncan 2    20 Jan 1966
+John Smith  1222 26 Apr 1956
+John Smith  1222 26 Apr 1956
+John Smith  1222 26 Apr 1956
+Larry Jones 3223 20 Dec 1946
+Larry Jones 3223 20 Dec 1946
+Larry Jones 3223 20 Dec 1946
+Lisa Sue    1222 4  Jul 1980
+Lisa Sue    1222 4  Jul 1980
+Tony Jones  2152 20 Mar 1950
+Tony Jones  2152 20 Mar 1950
+
+
+QUESTION 40:
+sh-4.2$ sort xFile123 | uniq
+John Duncan 2    20 Jan 1966
+John Smith  1222 26 Apr 1956
+Larry Jones 3223 20 Dec 1946
+Lisa Sue    1222 4  Jul 1980
+Tony Jones  2152 20 Mar 1950
+
+
+QUESTION 41:
+sh-4.2$ sort xFile123 | uniq > xFile123compact
+
+
+QUESTION 42:
+sh-4.2$ cat xFile123compact
+John Duncan 2    20 Jan 1966
+John Smith  1222 26 Apr 1956
+Larry Jones 3223 20 Dec 1946
+Lisa Sue    1222 4  Jul 1980
+Tony Jones  2152 20 Mar 1950
+
+
+QUESTION 43:
+sh-4.2$ chmod u-r xFile1
+sh-4.2$ ls -l xFile1
+--wx------ 1 bryan712 ugrad 145 Mar 28 21:46 xFile1
+sh-4.2$ cat xFile1
+cat: xFile1: Permission denied
+
+
+QUESTION 44:
+sh-4.2$ chmod 775 xFile1
+sh-4.2$ ls -l xFile1
+-rwxrwxr-x 1 bryan712 ugrad 145 Mar 28 21:46 xFile1
+
+
+QUESTION 45:
+sh-4.2$ chmod 757 xFile123compact
+sh-4.2$ ls -l xFile123compact
+-rwxr-xrwx 1 bryan712 ugrad 145 Mar 28 22:43 xFile123compact
+
+
+QUESTION 46:
+sh-4.2$ cat >> xFile1
+this is a xxx new line
+sh-4.2$ cat xFile1
+John Smith  1222 26 Apr 1956
+Tony Jones  2152 20 Mar 1950
+John Duncan 2    20 Jan 1966
+Larry Jones 3223 20 Dec 1946
+Lisa Sue    1222 4  Jul 1980
+this is a xxx new line
+
+
+QUESTION 47:
+sh-4.2$ chmod u-w xFile1
+sh-4.2$ cat >> xFile1
+sh: xFile1: Permission denied
+
+
+QUESTION 48(1):
+sh-4.2$ ls -ltc
+total 20
+-r-xrwxr-x 1 bryan712 ugrad 168 Mar 28 23:02 xFile1
+-rwxr-xrwx 1 bryan712 ugrad 145 Mar 28 22:58 xFile123compact
+-rw------- 1 bryan712 ugrad 377 Mar 28 22:39 xFile123
+-rwx------ 1 bryan712 ugrad  87 Mar 28 21:46 xFile3
+-rwx------ 1 bryan712 ugrad 145 Mar 28 21:46 xFile2
+
+
+QUESTION 48(2):
+sh-4.2$ ls -ltc -r
+total 20
+-rwx------ 1 bryan712 ugrad 145 Mar 28 21:46 xFile2
+-rwx------ 1 bryan712 ugrad  87 Mar 28 21:46 xFile3
+-rw------- 1 bryan712 ugrad 377 Mar 28 22:39 xFile123
+-rwxr-xrwx 1 bryan712 ugrad 145 Mar 28 22:58 xFile123compact
+-r-xrwxr-x 1 bryan712 ugrad 168 Mar 28 23:02 xFile1
+
+
+QUESTION 49(1):
+sh-4.2$ ls -lS
+total 20
+-rw------- 1 bryan712 ugrad 377 Mar 28 22:39 xFile123
+-r-xrwxr-x 1 bryan712 ugrad 168 Mar 28 23:00 xFile1
+-rwxr-xrwx 1 bryan712 ugrad 145 Mar 28 22:43 xFile123compact
+-rwx------ 1 bryan712 ugrad 145 Mar 28 21:46 xFile2
+-rwx------ 1 bryan712 ugrad  87 Mar 28 21:46 xFile3
+
+
+QUESTION 49(2):
+sh-4.2$ ls -lS -r
+total 20
+-rwx------ 1 bryan712 ugrad  87 Mar 28 21:46 xFile3
+-rwx------ 1 bryan712 ugrad 145 Mar 28 21:46 xFile2
+-rwxr-xrwx 1 bryan712 ugrad 145 Mar 28 22:43 xFile123compact
+-r-xrwxr-x 1 bryan712 ugrad 168 Mar 28 23:00 xFile1
+-rw------- 1 bryan712 ugrad 377 Mar 28 22:39 xFile123
+
+
+QUESTION 50:
+sh-4.2$ sort -k3 xFile123compact
+John Smith  1222 26 Apr 1956
+Lisa Sue    1222 4  Jul 1980
+Tony Jones  2152 20 Mar 1950
+John Duncan 2    20 Jan 1966
+Larry Jones 3223 20 Dec 1946
+
+
+QUESTION 51:
+sh-4.2$ sort -n -k3 xFile123compact
+John Duncan 2    20 Jan 1966
+John Smith  1222 26 Apr 1956
+Lisa Sue    1222 4  Jul 1980
+Tony Jones  2152 20 Mar 1950
+Larry Jones 3223 20 Dec 1946
+
+
+QUESTION 52(1):
+sh-4.2$ sort -k6 xFile123compact
+Larry Jones 3223 20 Dec 1946
+Tony Jones  2152 20 Mar 1950
+John Smith  1222 26 Apr 1956
+John Duncan 2    20 Jan 1966
+Lisa Sue    1222 4  Jul 1980
+
+
+QUESTION 52(2):
+sh-4.2$ sort -k6 -r xFile123compact
+Lisa Sue    1222 4  Jul 1980
+John Duncan 2    20 Jan 1966
+John Smith  1222 26 Apr 1956
+Tony Jones  2152 20 Mar 1950
+Larry Jones 3223 20 Dec 1946
+
+
+QUESTION 53:
+sh-4.2$ sort -k5 xFile123compact
+John Smith  1222 26 Apr 1956
+Larry Jones 3223 20 Dec 1946
+John Duncan 2    20 Jan 1966
+Lisa Sue    1222 4  Jul 1980
+Tony Jones  2152 20 Mar 1950
+
+
+QUESTION 54:
+sh-4.2$ sort -k5 -M xFile123compact
+John Duncan 2    20 Jan 1966
+Tony Jones  2152 20 Mar 1950
+John Smith  1222 26 Apr 1956
+Lisa Sue    1222 4  Jul 1980
+Larry Jones 3223 20 Dec 1946
+
+
+QUESTION 55:
+sh-4.2$ egrep 2 xFile123compact
+John Duncan 2    20 Jan 1966
+John Smith  1222 26 Apr 1956
+Larry Jones 3223 20 Dec 1946
+Lisa Sue    1222 4  Jul 1980
+Tony Jones  2152 20 Mar 1950
+
+
+QUESTION 56:
+sh-4.2$ egrep 2 -w xFile123compact
+John Duncan 2    20 Jan 1966
+
+
+QUESTION 57:
+sh-4.2$ egrep 195. xFile123compact
+John Smith  1222 26 Apr 1956
+Tony Jones  2152 20 Mar 1950
+
+
+QUESTION 58:
+sh-4.2$ egrep 195. xFile123compact | wc -l
+2
+sh-4.2$ cp /eecs/dept/course/2019-20/W/2030tmp/classlist .
+sh-4.2$ ls
+classlist  xFile1  xFile123  xFile123compact  xFile2  xFile3
+
+
+QUESTION 59:
+sh-4.2$ wc -l classlist
+152 classlist
+
+
+QUESTION 60:
+sh-4.2$ egrep -w Li classlist
+bryan***  	*********	Li	 Bryan 
+
+
+QUESTION 61(1):
+sh-4.2$ egrep Li classlist
+bliu**    	*********	Liu	 Bin                                
+bryan***  	*********	Li	 Bryan                               
+jamesliu  	*********	Liu	 Junrui                             
+jl****    	*********	Liang	 Siyu                             
+kuku      	*********	Zheku	 Liran                            
+lisal**   	*********	Luong	 Lisa 
+
+
+QUESTION 61(2):
+sh-4.2$ egrep -w Li classlist
+bryan***  	*********	Li	 Bryan 
+
+
+QUESTION 62(1):
+sh-4.2$ egrep -w Wang classlist | wc -l
+5
+
+
+QUESTION 62(2):
+sh-4.2$ egrep -w Wang classlist
+ge*ffrey  	*********	Wang	 Geoffrey                          
+wby***    	*********	Wang	 Boyuan                            
+yu******  	*********	Wang	 Xiaoji                            
+zihanw    	*********	Wang	 Zihan                             
+zippo     	*********	Wang	 Zepu 
+
+
+QUESTION 63(1):
+sh-4.2$ egrep -w Patel classlist | wc -l
+6
+
+
+QUESTION 63(2):
+sh-4.2$ egrep -w Patel classlist
+aman****  	*********	Patel	 Aman                             
+hp****    	*********	Patel	 Harshil                          
+prince**  	*********	Patel	 Prince                           
+rushildp  	*********	Patel	 Rushilkumar                      
+urvish**  	*********	Patel	 Urvish                           
+vrajesh*  	*********	Patel	 Vrajesh
+
+
+QUESTION 64:
+sh-4.2$ egrep -w Wong classlist | wc -l
+2
+sh-4.2$ egrep -w Wong classlist
+added    	*********	Wong	FengC
+cse***  	*********	Wong	JunXiu
+
+
+QUESTION 65(1):
+sh-4.2$ egrep -w W[ao]ng classlist | wc -l
+7
+
+
+QUESTION 65(2):
+sh-4.2$ egrep -w W[ao]ng classlist
+ge*ffrey  	*********	Wang	 Geoffrey                          
+wby***    	*********	Wang	 Boyuan                            
+yu******  	*********	Wang	 Xiaoji                            
+zihanw    	*********	Wang	 Zihan                             
+zippo     	*********	Wang	 Zepu                              
+added    	*********	Wong	FengC
+cse***  	*********	Wong	JunXiu
+
+
+
+QUESTION 65(3):
+sh-4.2$ egrep -w Ch[ae]n classlist
+chenj***  	*********	Chen	 Junyan                            
+lydiaxc   	*********	Chen	 Xuan                              
+addedB   	*********	Chan	Jeck
+
+
+
+QUESTION 66:
+sh-4.2$ cut -f 1 classlist
+sh-4.2$ cut -f 3 classlist
+sh-4.2$ cut -f 1-3 classlist
+sh-4.2$ cut -f 1,3 classlist
+sh-4.2$ cut -f 3,4 classlist > tmp
+sh-4.2$ cat classlist | sort -k3 | cut -f 3,4
+
+
+QUESTION 67:
+sh-4.2$ cp /eecs/dept/course/2019-20/W/2030tmp/lyrics .
+sh-4.2$ egrep the lyrics
+#So turn off the light, 1980
+Say all your prayers and then, 
+Beautiful mermaids will swim through the sea,
+And you will be swimming there too. 
+sea 1980 I got there by chance.
+
+
+QUESTION 68:
+sh-4.2$ egrep -w the lyrics
+#So turn off the light, 1980
+Beautiful mermaids will swim through the sea,
+
+
+QUESTION 69:
+sh-4.2$ egrep -w -v the lyrics
+Well you know it's your bedtime, 
+Say all your prayers and then, 
+Oh you sleepy young 1970 heads dream of wonderful things, 
+And you will be swimming there too. 
+sea 1980 I got there by chance.
+
+
+QUESTION 70:
+sh-4.2$ egrep [0-9] lyrics
+#So turn off the light, 1980
+Oh you sleepy young 1970 heads dream of wonderful things, 
+sea 1980 I got there by chance.
+
+
+QUESTION 71:
+sh-4.2$ egrep 1980 lyrics
+#So turn off the light, 1980
+sea 1980 I got there by chance.
+
+
+QUESTION 72:
+sh-4.2$ egrep 1980$ lyrics
+#So turn off the light, 1980
+
+
+QUESTION 73:
+sh-4.2$ egrep -w sea lyrics
+Beautiful mermaids will swim through the sea,
+sea 1980 I got there by chance.
+
+
+QUESTION 74:
+sh-4.2$ egrep ^sea lyrics
+sea 1980 I got there by chance.
+
+
+QUESTION 75:
+sh-4.2$ egrep ^.nd lyrics
+And you will be swimming there too. 
+
+
+QUESTION 76:
+sh-4.2$ egrep [ABCD] lyrics
+Beautiful mermaids will swim through the sea,
+And you will be swimming there too. 
+
+
+QUESTION 77:
+cd ..
+
+
+QUESTION 78:
+sh-4.2$ find . -name "xFile?"
+./lab7working/xFile2
+./lab7working/xFile3
+./lab7working/xFile1
+
+
+QUESTION 79:
+sh-4.2$ find . -name "xFile*"
+./lab7working/xFile2
+./lab7working/xFile3
+./lab7working/xFile1
+./lab7working/xFile123
+./lab7working/xFile123compact
+
+
+QUESTION 80(1):
+sh-4.2$ find . -name "xFile*" -exec mv {} {}.Lab7 \;
+
+
+QUESTION 80(2):
+sh-4.2$ ls lab7working 
+classlist  tmp			 xFile123.Lab7	xFile2.Lab7
+lyrics	   xFile123compact.Lab7  xFile1.Lab7	xFile3.Lab7
+
+
+QUESTION 80(3):
+sh-4.2$ find . -name "xFile*" -exec chmod 775 {} \;
+
+
+QUESTION 80(4):
+sh-4.2$ ls -l lab7working
+total 44
+-rwx------ 1 bryan712 ugrad 9169 Mar 28 23:36 classlist
+-rwx------ 1 bryan712 ugrad  269 Mar 29 00:16 lyrics
+-rw------- 1 bryan712 ugrad 6008 Mar 29 00:13 tmp
+-rwxrwxr-x 1 bryan712 ugrad  145 Mar 28 22:43 xFile123compact.Lab7
+-rwxrwxr-x 1 bryan712 ugrad  377 Mar 28 22:39 xFile123.Lab7
+-rwxrwxr-x 1 bryan712 ugrad  168 Mar 28 23:00 xFile1.Lab7
+-rwxrwxr-x 1 bryan712 ugrad  145 Mar 28 21:46 xFile2.Lab7
+-rwxrwxr-x 1 bryan712 ugrad   87 Mar 28 21:46 xFile3.Lab7
+
+
+======================================================================
+PART II Common Shell Functionalities and Corresponding Meta-Characters
+======================================================================
+
+QUESTION 81:
+sh-4.2$ ls *
+classlist  tmp			 xFile123.Lab7	xFile2.Lab7
+lyrics	   xFile123compact.Lab7  xFile1.Lab7	xFile3.Lab7
+sh-4.2$ ls xFile*.Lab7
+xFile123compact.Lab7  xFile123.Lab7  xFile1.Lab7  xFile2.Lab7  xFile3.Lab7
+sh-4.2$ ls xFile?.Lab7
+xFile1.Lab7  xFile2.Lab7  xFile3.Lab7
+sh-4.2$ ls xFile???.Lab7
+xFile123.Lab7
+sh-4.2$ ls xFile[1,3].Lab7
+xFile1.Lab7  xFile3.Lab7
+sh-4.2$ ls xFile[1-3].Lab7
+xFile1.Lab7  xFile2.Lab7  xFile3.Lab7
+sh-4.2$ wc -l xFile?.Lab7
+  6 xFile1.Lab7
+  5 xFile2.Lab7
+  3 xFile3.Lab7
+ 14 total
+sh-4.2$ wc -l xFile???.Lab7
+13 xFile123.Lab7
+sh-4.2$ wc -l xFile[1,3].Lab7
+  6 xFile1.Lab7
+  3 xFile3.Lab7
+  9 total
+sh-4.2$ wc -l xFile[1-3].Lab7
+  6 xFile1.Lab7
+  5 xFile2.Lab7
+  3 xFile3.Lab7
+ 14 total
+
+
+QUESTION 82:
+sh-4.2$ echo Hello, now is `date`. Have a good day
+Hello, now is Sun Mar 29 01:01:06 EDT 2020. Have a good day
+sh-4.2$ echo There are `wc -l classlist` students in EECS2031M
+There are 152 classlist students in EECS2031M
+sh-4.2$ echo There are `egrep -w Wang classlist | wc -l` students in EECS2031M with family name Wang
+There are 5 students in EECS2031M with family name Wang
+
+
+QUESTION 83:
+sh-4.2$ egrep -w Leung classlist
+sh-4.2$ echo $?
+1
+sh-4.2$ egrep -w Zhang classlist
+mark*zzx  	*********	Zhang	 Zhengxiao                        
+sh-4.2$ echo $?
+0
+sh-4.2$ egrep -w Leung classlist && echo HELLO
+sh-4.2$ egrep -w Zhang classlist && echo HELLO
+mark*zzx  	*********	Zhang	 Zhengxiao                        
+HELLO
+sh-4.2$ egrep -w Leung classlist || echo HELLO
+HELLO
+sh-4.2$ egrep -w Zhang classlist || echo HELLO
+mark*zzx  	*********	Zhang	 Zhengxiao  
+
+
+QUESTION 84:
+sh-4.2$ courseN=EECS2031M
+sh-4.2$ echo 3 * 4 = 12, course name is $courseN - today is `date`, bye
+3 classlist lyrics tmp xFile123compact.Lab7 xFile123.Lab7 xFile1.Lab7 xFile2.Lab7 xFile3.Lab7 4 = 12, course name is EECS2031M - today is Sun Mar 29 01:11:09 EDT 2020, bye
+sh-4.2$ echo ' 3 * 4 = 12, course name is $courseN - today is `date`, bye'
+ 3 * 4 = 12, course name is $courseN - today is `date`, bye
+sh-4.2$ echo " 3 * 4 = 12, course name is $courseN - today is `date`, bye"
+ 3 * 4 = 12, course name is EECS2031M - today is Sun Mar 29 01:13:55 EDT 2020, bye
+
+
+=================================================
+PART III Borne (again) Shell Scripts
+=================================================
+
+1. Read User Input, and Do Logical Comparisons
+sh-4.2$ read x
+We are the world and children
+sh-4.2$ echo $x
+We are the world and children
+sh-4.2$ read x y z
+We are the world and children
+sh-4.2$ echo $x, $y, $z
+We, are, the world and children
+
+sh-4.2$ test 3 -lt 4
+sh-4.2$ echo $?
+0
+
+sh-4.2$ num=3
+sh-4.2$ [ $num -gt 4 ]
+sh-4.2$ echo $?
+1
+
+sh-4.2$ input="quit"
+sh-4.2$ [ $input = "quitx" ]
+sh-4.2$ echo $?
+1
+sh-4.2$ [ $input = "quit" ]
+sh-4.2$ echo $?
+0
+sh-4.2$ [ -f xFile123.Lab7 ]
+sh-4.2$ echo $?
+0
+sh-4.2$ [ -x xFile123.Lab7 ]
+sh-4.2$ echo $?
+0
+sh-4.2$ [ -d ../lab7working ]
+sh-4.2$ echo $?
+0
+
+
+2. Problem B
+sh-4.2$ cp /eecs/dept/course/2019-20/W/2030tmp/mygrep.sh .
+sh-4.2$ mygrep.sh
+Please enter file to search: classlist
+Please enter searech key: Wang
+ge*ffrey  	*********	Wang	 Geoffrey                          
+wby***    	*********	Wang	 Boyuan                            
+yu******  	*********	Wang	 Xiaoji                            
+zihanw    	*********	Wang	 Zihan                             
+zippo     	*********	Wang	 Zepu                              
+the last exit value was 0
+sh-4.2$ mygrep.sh
+Please enter file to search: classlist
+Please enter searech key: Li
+bryan***  	*********	Li	 Bryan                               
+the last exit value was 0
+sh-4.2$ mygrep.sh
+Please enter file to search: classlist
+Please enter searech key: Leung
+the last exit value was 1
+
+
+3. Problem C
+sh-4.2$ cp /eecs/dept/course/2019-20/W/2030tmp/mygrepArg.sh .
+sh-4.2$ mygrepArg.sh
+ Error! Usage: ./mygrepArg.sh filename pattern
+sh-4.2$ mygrepArg.sh classlistX
+ Error! Usage: ./mygrepArg.sh filename pattern
+sh-4.2$ mygrepArg.sh classlistX Wang
+ Error! "classlistX" is not an exsiting file
+sh-4.2$ mygrepArg.sh classlist Wang
+there are 2 command line arguments: classlist Wang or classlist Wang
+ge*ffrey  	*********	Wang	 Geoffrey                          
+wby***    	*********	Wang	 Boyuan                            
+yu******  	*********	Wang	 Xiaoji                            
+zihanw    	*********	Wang	 Zihan                             
+zippo     	*********	Wang	 Zepu                              
+sh-4.2$ mygrepArg.sh classlist Leung
+there are 2 command line arguments: classlist Leung or classlist Leung
+
+
+
+
+
+

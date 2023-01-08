@@ -1,0 +1,69 @@
+/***************************************
+* EECS2031M – Lab5 *
+* Author: Li, Bryan *
+* Email: bryan712@my.yorku.ca *
+* eecs_username: bryan712 *
+* York Student #: 216426744
+****************************************/
+/* Passing an array to a function. */
+
+#include <stdio.h>
+
+#define MAX 20
+ 
+
+int largest(int * x, int *n);
+void display(int *arr, int *n);
+
+ main(int argc, char *argv[])
+ {
+     int array[MAX], count;
+
+     /* Input MAX values from the keyboard. */
+     int i;  count=0;
+     
+     while ( scanf("%d", &i) != EOF){
+        *(array + count) = i; // store in array[count]
+        count++;
+     }
+     *(array+count) = -1;
+
+
+      /* Call the function and display the return value. */
+      printf("Inputs: ");
+      display(array, &count);
+
+     
+     
+     printf("\nLargest value: %d\n", largest(array, &count));
+     
+     return 0;
+ }
+ 
+ /* display a int array */
+
+ void display(int *arr, int *n)
+ {
+     int i = 0;
+     for(i = 0; i < *n; i++){
+         printf("%d ", *(arr + i));
+         i++;
+     }
+ }
+
+
+/* Function largest() returns the largest value */
+ /* in an integer array */
+
+ int largest(int * arr, int *n)
+ {
+     int i = 0;
+     int num = 0;
+     for(i = 0; i < *n; i++){
+         if(*(arr + i) > num){
+             num = *(arr + i);
+         }
+     }
+     return num;
+ }
+

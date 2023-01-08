@@ -1,0 +1,67 @@
+/***************************************
+* EECS2031M – Lab4 *
+* Author: Li, Bryan *
+* Email: bryan712@my.yorku.ca *
+* eecs_username: bryan712 *
+* York Student #: 216426744
+****************************************/
+
+Reading symbols from a.out...done.
+(gdb) break 11
+Breakpoint 1 at 0x4004c3: file swap.c, line 11.
+(gdb) break 18
+Breakpoint 2 at 0x4004e3: file swap.c, line 18.
+(gdb) break 21
+Breakpoint 3 at 0x4004f5: file swap.c, line 21.
+(gdb) break 12
+Breakpoint 4 at 0x4004d2: file swap.c, line 12.
+(gdb) run
+Starting program: /eecs/home/bryan712/Documents/EECS2031/EECS2031Lab4/a.out
+
+Breakpoint 1, main () at swap.c:11
+(gdb) display mainA
+1: mainA = 1
+(gdb) display mainB
+2: mainB = 20000
+(gdb) continue
+Continuing.
+
+Breakpoint 2, swap (x=1, y=20000) at swap.c:18
+(gdb) display x
+3: x = 1
+(gdb) display y
+4: y = 20000
+(gdb) display mainA
+No symbol "mainA" in current context.
+(gdb) display mainB
+No symbol "mainB" in current context.
+(gdb) continue
+Continuing.
+
+Breakpoint 3, swap (x=20000, y=1) at swap.c:21
+4: y = 1
+3: x = 20000
+(gdb) display x
+5: x = 20000
+(gdb) display y
+6: y = 1
+(gdb) continue
+Continuing.
+
+Breakpoint 4, main () at swap.c:12
+2: mainB = 20000
+1: mainA = 1
+(gdb) display mainA
+7: mainA = 1
+(gdb) display mainB
+8: mainB = 20000
+(gdb) display x
+No symbol "x" in current context.
+(gdb) display y
+No symbol "y" in current context.
+(gdb) quit
+A debugging session is active.
+
+        Inferior 1 [process 6921] will be killed.
+
+Quit anyway? (y or n) y

@@ -1,0 +1,13 @@
+giraffes are high 0
+mosquitos are annoying 1
+monkeys are smart 2
+kangaroos are ugly 3
+dogs are friendly 4
+hippos are huge 5
+cobras are scary 6
+fox 7
+elephants are heavy 8
+hens 9
+bison 10
+xxx
+
